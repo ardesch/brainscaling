@@ -1,6 +1,6 @@
 % This script loads the connectivity data, computes connectivity
 % asymmetry, correlates this to cerebral volume, and produces the plots
-% for figure 4E.
+% for figure 4C.
 
 %% Load data
 clear; clc; rng('default');

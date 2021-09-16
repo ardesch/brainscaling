@@ -2,7 +2,7 @@
 % bins based on their connection length relative to the anterior-posterior
 % distance of the corresponding species' brain, and correlates this
 % normalized connection length with cerebral volume. It also produces the
-% heatmap used in Figure 4A.
+% heatmap used in Figure 3A.
 
 %% Load data
 clear; clc; rng('default');

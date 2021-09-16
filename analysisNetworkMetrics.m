@@ -1,7 +1,7 @@
 % This script loads the connectivity data and computes characteristic path
 % length and clustering coefficient as network metrics, and correlates them
-% with cerebral volume. It also produces the scatter plots for Figures 4B
-% and 4C.
+% with cerebral volume. It also produces the scatter plots for Figures 4A
+% and 4B.
 
 %% Load data
 clear; clc; rng('default');

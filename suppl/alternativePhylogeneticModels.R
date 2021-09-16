@@ -44,7 +44,7 @@ x <- setNames(log(comp_data$cort_surf), comp_data$names)
 y <- setNames(log(comp_data$total_cc_area), comp_data$names)
 fit.ml <- phyl.RMA(x, y, tree, method="lambda", h0=1)
 
-## Brownian motion , Ornstein-Uhlenbeck, and early-burst models ##
+## Brownian motion, Ornstein-Uhlenbeck, and early-burst models ##
 
 mydata <- read.csv("../pgls/volumetricData.csv")
 matching <- data.frame(tree$tip.label)

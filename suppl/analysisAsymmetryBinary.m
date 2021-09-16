@@ -1,5 +1,5 @@
 % This script loads the connectivity data, computes connectivity
-% asymmetry but based on binary topology, and correlates it to cerebral
+% asymmetry based on binary topology, and correlates it to cerebral
 % volume.
 
 %% Load data

@@ -1,4 +1,4 @@
-# This script runs PGLS on binary connectivity asymmetry and cerebral volume.
+# This script runs PGLS on betweenness centrality and cerebral volume.
 
 # Load libraries
 library("ape")
@@ -11,8 +11,8 @@ tree <- read.nexus("../data/consensusTree_10kTrees_Primates_Version3.nex")
 
 # Normalized data (for easier interpretation of coefficients)
 
-# Read data into a dataframe
-mydata <- read.csv("connectivityAsymmetryBinaryNormalized.csv")
+# Read data into a dataframe (lh)
+mydata <- read.csv("betweennessNormalized_lh.csv")
 
 # Match species names in the data to species names in the phylogenetic tree
 matching <- data.frame(tree$tip.label)
@@ -28,16 +28,11 @@ comp.data <- comparative.data(tree, comp_data, names.col = "names", vcv.dim=2, w
 
 # Analyses with estimated lambda
 mylambda <- "ML"
-df1 <- tidyPgls(pgls(conn_asymmetry~SupraTentorialVol, data=comp.data, lambda=mylambda)) # binary asymmetry vs supratentorial volume
-df2 <- tidyPgls(pgls(conn_asymmetry~cort_surf, data=comp.data, lambda=mylambda)) # binary asymmetry vs cortical surface area volume
-results = rbind(df1, df2)
+df1 <- tidyPgls(pgls(avg~SupraTentorialVol, data=comp.data, lambda=mylambda)) # average betweenness centrality vs supratentorial volume
+df2 <- tidyPgls(pgls(skew~SupraTentorialVol, data=comp.data, lambda=mylambda)) # skewness of the betweenness centrality distribution vs supratentorial volume
 
-write.csv(results, "pglsConnectivityAsymmetryBinaryNormalized.csv")
-
-# Unnormalized data (for figures)
-
-# Read data into a dataframe
-mydata <- read.csv("connectivityAsymmetryBinary.csv")
+# Read data into a dataframe (rh)
+mydata <- read.csv("betweennessNormalized_rh.csv")
 
 # Match species names in the data to species names in the phylogenetic tree
 matching <- data.frame(tree$tip.label)
@@ -53,9 +48,9 @@ comp.data <- comparative.data(tree, comp_data, names.col = "names", vcv.dim=2, w
 
 # Analyses with estimated lambda
 mylambda <- "ML"
-df1 <- tidyPgls(pgls(conn_asymmetry~log(SupraTentorialVol), data=comp.data, lambda=mylambda)) # weighted distance vs supratentorial volume
-df2 <- tidyPgls(pgls(conn_asymmetry~log(cort_surf), data=comp.data, lambda=mylambda)) # weighted distance vs cortical surface area volume
-results = rbind(df1, df2)
+df3 <- tidyPgls(pgls(avg~SupraTentorialVol, data=comp.data, lambda=mylambda)) # average betweenness centrality vs supratentorial volume
+df4 <- tidyPgls(pgls(skew~SupraTentorialVol, data=comp.data, lambda=mylambda)) # skewness of the betweenness centrality distribution vs supratentorial volume
 
-write.csv(results, "pglsConnectivityAsymmetryBinary.csv")
+results = rbind(df1, df2, df3, df4)
 
+write.csv(results, "pglsBetweennessNormalized.csv")

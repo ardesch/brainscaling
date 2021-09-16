@@ -7,6 +7,7 @@ This repository contains the following data and code:
 * volumetric and connectivity data of the primate species included in the study (`data` folder)
 * code for the main analyses in MATLAB
 * code for phylogenetic generalized least squares regression in R (`R` folder)
+* precomputed results for phylogenetic generalized least squares regression (`pgls` folder)
 * code and data for supplementary analyses (`suppl` folder)
 
 The main scripts used for the analyses presented in the main text are:
@@ -15,7 +16,6 @@ The main scripts used for the analyses presented in the main text are:
 * `analysisConnectionLength.m`
 * `analysisNetworkMetrics.m`
 * `analysisAsymmetry.m`
-* `analysisVoxelSize.m`
 
 ## Dependencies
 

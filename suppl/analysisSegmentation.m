@@ -65,7 +65,7 @@ ci = coefCI(mdl);
 %% Compare some allometric scaling exponents between FSL and FreeSurfer
 % White matter vs total gray matter
 
-% FS
+% FreeSurfer
 x = aseg.TotalGrayVol;
 y = aseg.CerebralWhiteMatterVol + ...
     aseg.Right_Cerebellum_White_Matter + ...
