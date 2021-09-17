@@ -110,7 +110,7 @@ fA = figure('Color', 'white', 'Position', [0,0,400,200]);
 imagesc(1:nBins,y(end:-1:1),flipud(connLengthPropsAvg)); colorbar;
 xlabel('Connection length bin');
 axis('xy');
-colormap(makeColorMap([1,1,1], [0.9, 0.1, 0], 1000));
+colormap([linspace(1,0.9,256); linspace(1,0.1,256); linspace(1,0,256)]');
 yticks([1:length(aseg.subject)]); yticklabels(aseg.subject(I));
 axis equal tight;
 
